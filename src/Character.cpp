@@ -2,15 +2,22 @@
 
 
 Character::Character ( int x, int y, int etage ) : 
-    position( { x, y, etage } ), pdv(100), strength(5), defense(1), gold(0) {}
+    pdv(100), strength(5), defense(1), gold(0) 
+    {
+        position = new int[3];
+        position[0] = x;
+        position[1] = y;
+        position[2] = etage;
+    }
+Character::~Character () { delete[] position; }
 
 
 int* Character::get_position () const { return position; }
 void Character::move ( int axis, int direction ) { position[axis] += direction; }
 
 
-void Character::incr_life () { pdv += 1; }
-void Character::decr_life () { pdv -= 10 - defense; }
+void Character::incr_life ( int value ) { pdv += value; }
+void Character::decr_life ( int value ) { pdv -= value - defense; }
 int Character::get_life () const { return pdv; }
 
 
@@ -33,26 +40,26 @@ std::string Character::add_object ( Object* object )
 {
     if ( besace.size() < size_max )
     {
-        besace.pushback( object );
+        besace.push_back( object );
         object->equip( this );
-        return "objet ajouté à la besace"
+        return "objet ajouté à la besace";
     }
     else
     {
-        return "la besace est pleine"
+        return "la besace est pleine";
     }
 }
 void Character::remove_object ( int index ) 
 {
     besace[index]->ditch( this );
-    besace.erase( index );
+    besace.erase( besace.begin() + index );
 }
 std::string Character::print_besace () const
 {
     std::string list_objects = "";
-    for ( int i=0 ; i<size_max ; i++ )
+    for ( unsigned int i=0 ; i<size_max ; i++ )
     {
-        list_objects += to_string(i);
+        list_objects += std::to_string(i);
         list_objects += ". ";
         list_objects += besace[i]->print();
         list_objects += "\n";

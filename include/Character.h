@@ -1,14 +1,19 @@
+#ifndef DEF_CHARACTER
+#define DEF_CHARACTER
+
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Object.h"
 
-class Object;
+//class Object;
 
 class Character 
 {
     
     public :
-        Character( int x, int y, int etage );
+        Character ( int x, int y, int etage );
+        ~Character ();
 
         // mouvement du personnage
         int* get_position () const;
@@ -17,8 +22,8 @@ class Character
             //direction : +1 si en avant (droite ou haut), -1 si en arrière (gauche ou bas)
         
         // gagner, perdre et afficher la vie
-        void incr_life ();
-        void decr_life ();
+        void incr_life ( int value );
+        void decr_life ( int value );
         int get_life () const;
 
         // gagner, perdre et afficher l'argent
@@ -38,17 +43,19 @@ class Character
 
         // traitement des objets dans la besace
         std::string add_object ( Object* object );
-        void Character::remove_object ( int index );
-        std::string Character::print_besace () const;    
+        void remove_object ( int index );
+        std::string print_besace () const;    
 
     private :
-        int position[3];
+        int* position;
         
         int pdv;
         int strength;
         int defense;
         
         int gold;
-        static int const size_max;
+        static unsigned int const size_max;
         std::vector <Object*> besace;
 };
+
+#endif
