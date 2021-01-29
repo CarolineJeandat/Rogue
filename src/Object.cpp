@@ -4,33 +4,36 @@
 /*-------------------- Classe : Arme ---------------------*/
 /*--------------------------------------------------------*/
 
-Arme::Arme(int might) :
-    might(might) {}
+Arme::Arme(int might) : used(false), might(might) {}
 
-int Arme::getMight() {
+int Arme::getMight() const {
     return might;
 }
 
-void Arme::equip(Character perso) {
-    perso.incr_strength(might);
+void Arme::use(Character* perso) {
+    used = true;
+    perso->incr_strength(might);
 }
 
-void Arme::ditch(Character perso) {
-    perso.decr_strength(might);
+void Arme::equip(Character* perso) {
+    this->use(perso);
+}
+
+void Arme::ditch(Character* perso) {
+    perso->decr_strength(might);
 }
 
 /*--------------------------------------------------------*/
-/*-------------------- Classe : Arme ---------------------*/
+/*------------------- Classe : Armure --------------------*/
 /*--------------------------------------------------------*/
 
-Armure::Armure(int might) {
-    might(might);
+Armure::Armure(int might) : used(false), might(might) {}
+
+void Armure::use(Character* perso) {
+    used = true;
+    perso->incr_defense(might);
 }
 
-void Armure::equip(Character perso) {
-    perso.incr_defense(might);
-}
-
-void Armure::ditch(Character perso) {
-    perso.decr_defense(might);
+void Armure::ditch(Character* perso) {
+    perso->decr_defense(might);
 }
