@@ -9,13 +9,14 @@ class Object {
     protected :
         std::string type;
         std::string description;
+        std::string action;
     public :
         std::string getType() const ;
         virtual void equip(Character* perso) = 0;
         virtual void use(Character* perso) = 0;
         virtual void unuse(Character* perso) = 0;
         virtual void ditch(Character* perso) = 0;
-        std::string printObject();
+        std::string printObject() const;
 };
 
 class Arme : public Object {
