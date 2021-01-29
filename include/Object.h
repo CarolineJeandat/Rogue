@@ -37,8 +37,8 @@ class Armure : public Object {
         int might;
     public :
         Armure(int might);
-        void equip(Character* perso);
         void use(Character* perso);
+        void equip(Character* perso);
         void unuse(Character* perso);
         void ditch(Character* perso);
 };
@@ -47,7 +47,11 @@ class Food : public Object {
     private :
         int energy;
     public :
-        
+        Food(int energy);
+        void use(Character* perso);
+        void equip(Character* perso);
+        void unuse(Character* perso);
+        void ditch(Character* perso);
 };
 
 #endif
