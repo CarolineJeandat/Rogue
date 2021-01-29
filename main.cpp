@@ -2,8 +2,7 @@
 #include <string>
 #include <ncurses.h>
 #include "donjon.h"
-#include "Character.h"
-#include "Monster.h"
+#include "Hero.h"
 #include "object.h"
 
 void play(){
@@ -20,7 +19,7 @@ void play(){
     while (c != 'q') {
         // On récupère le caractère tapé.
         c = getch();
-        Character H(4,4,1);
+        Hero H(4,4,1);
         if(c='KEY_UP'){
             move(0,-1,H,l);
         }
@@ -40,14 +39,18 @@ void play(){
     }
 }
 
-void move(int x, int y, Character H, int** l){
-
+void move(int x, int y, Hero H, int** l){
+    int a,b,c=get_position(H);
+    if(l[a+x][b+y]==5 || l[a+x][b+y]==6 || l[a+x][b+y]==7 || l[a+x][b+y]==8){
+        H.move(0,x);
+        H.move(1,y);
+        ramasser(Hero H,int**L)
 }
 
-void ramasser(Character H,int** L){
+void ramasser(Hero H,int** L){
     
 }
-void monter (Character H,int** l){
+void monter (Hero H,int** l){
 
 }
 
