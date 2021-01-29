@@ -14,34 +14,37 @@ constexpr int potion=7;
 constexpr int nourriture=8;
 
 
-void initialisation_etage(Etage etage,WINDOW * win){
-    wmove(win, 0, 0);
+void initialisation_etage(Etage etage,WINDOW * win,Character H){
+    wmove(win, 3, 0);
     int** l = etage.grid;
     for(int i=0;i<etage.x_size;i++){
         for(int j=0;j<etage.y_size;j++){
             if(l[i][j]==mur){
                 waddch(win, 'ACS_BLOCK');
             }
-            if(l[i][j]==sol){
+            else if(l[i][j]==sol){
                 waddch(win, '.');
             }
-            if(l[i][j]==hero){
+            else if(l[i][j]==hero){
                 waddch(win, '@');
             }
-            if(l[i][j]==armure){
+            else if(l[i][j]==armure){
                 waddch(win, 'A');
             }
-            if(l[i][j]==arme){
+            else if(l[i][j]==arme){
                 waddch(win, '!');
             }
-            if(l[i][j]==potion){
+            else if(l[i][j]==potion){
                 waddch(win, 'P');
             }
-            if(l[i][j]==nourriture){
+            else if(l[i][j]==nourriture){
                 waddch(win, 'o');
             }
-            if(l[i][j]==couloir){
+            else if(l[i][j]==couloir){
                 waddch(win, '=');
+            }
+            else if(l[i][j]==0){
+                waddch(win,' ');
             }
         }
     }
