@@ -55,7 +55,7 @@ class Hero : public Character
 
         void move ( int axis, int direction ); 
             // axis : 0 pour x, 1 pour y, 2 pour étage
-            //direction : +1 si en avant (droite ou haut), -1 si en arrière (gauche ou bas)
+            // direction : +1 si en avant (droite ou haut), -1 si en arrière (gauche ou bas)
         
         // gagner, perdre et afficher l'argent
         void incr_gold ( int value );
