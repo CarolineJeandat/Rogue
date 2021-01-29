@@ -3,18 +3,39 @@
 #include <ncurses.h>
 
 void play(){
+    initscr();
+    cbreak();
+    noecho();
+    keypad(stdscr, TRUE);
+    WINDOW * win = newwin(30, 60, 0, 0);
     char c;
+
+
+    int**l=
     while (c != 'q') {
         // On récupère le caractère tapé.
         c = getch();
-        if(c='KEY UP'){
-            
+        H=character;
+        if(c='KEY_UP'){
+            move(0,-1,x,l)
+        }
+        if(c='KEY_DOWN'){
+            move(0,1,x,l)
+        }
+        if(c='KEY_RIGHT'){
+            move(1,0,x,l)
+        }
+        if(c='KEY_LEFT'){
+            move(-1,0,x,l)
         }
 
         endwin();
     }
 }
 
+void move(int x, int y, Character H, int** l){
+    
+}
 
 
 
@@ -31,11 +52,6 @@ void print_char_error_message(char c) {
 
 
 int main(){
-    initscr();
-    cbreak();
-    noecho();
-    keypad(stdscr, TRUE);
-    WINDOW * win = newwin(30, 60, 0, 0);
     play();
     return 0;
 }

@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "Object.h"
 
 
 Character::Character ( int x, int y, int etage ) : 
@@ -61,8 +62,17 @@ std::string Character::print_besace () const
     {
         list_objects += std::to_string(i);
         list_objects += ". ";
-        list_objects += besace[i]->print();
+        list_objects += besace[i]->printObject();
         list_objects += "\n";
     }
     return list_objects;
+}
+void Character::use_object ( int index )
+{
+    besace[index]->use( this );
+    std::string type = besace[index]->getType();
+    if ( type == "Aliment" || type == "Potion" )
+    {
+        this->remove_object( index );
+    }
 }
