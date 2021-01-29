@@ -26,7 +26,7 @@ class Arme : public Object {
         bool used;
         int might;
     public :
-        Arme(int might);
+        Arme();
         int getMight() const;
         void use(Hero* perso);
         void equip(Hero* perso);
@@ -40,7 +40,7 @@ class Armure : public Object {
         bool used;
         int might;
     public :
-        Armure(int might);
+        Armure();
         void use(Hero* perso);
         void equip(Hero* perso);
         void unuse(Hero* perso);
@@ -51,7 +51,7 @@ class Food : public Object {
     private :
         int energy;
     public :
-        Food(int energy);
+        Food();
         void use(Hero* perso);
         void equip(Hero* perso);
         void unuse(Hero* perso);
@@ -62,7 +62,7 @@ class Potion : public Object {
     private :
         int effect;
     public :
-        Potion(int effect);
+        Potion();
         void use(Hero* perso);
         void equip(Hero* perso);
         void unuse(Hero* perso);

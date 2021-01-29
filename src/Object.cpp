@@ -14,7 +14,7 @@ std::string Object::printObject() const {
 /*-------------------- Classe : Arme ---------------------*/
 /*--------------------------------------------------------*/
 
-Arme::Arme(int might) : used(false), might(might) {
+Arme::Arme() : used(false), might(rand()%50+1) {
     type = "Arme";
     description = "Epée des fées, héritée de Morgane";
     action = "Force +" + std::to_string(might);
@@ -50,7 +50,7 @@ void Arme::ditch(Hero* perso) {
 /*------------------- Classe : Armure --------------------*/
 /*--------------------------------------------------------*/
 
-Armure::Armure(int might) : used(false), might(might) {
+Armure::Armure() : used(false), might(rand()%50+1) {
     type = "Armure";
     description = "Cotte de maille rustique";
     action = "Defense +" + std::to_string(might);
@@ -82,7 +82,7 @@ void Armure::ditch(Hero* perso) {
 /*-------------------- Classe : Food ---------------------*/
 /*--------------------------------------------------------*/
 
-Food::Food(int energy) : energy(energy) {
+Food::Food() : energy(rand()%50+1) {
     type = "Aliment";
     description = "Pomme d'Adam"; 
     action = "Vie +" + std::to_string(energy);
@@ -103,7 +103,7 @@ void Food::ditch(Hero* perso) {}
 /*------------------- Classe : Potion --------------------*/
 /*--------------------------------------------------------*/
 
-Potion::Potion(int effect) : effect(effect) {
+Potion::Potion() : effect(rand()%25+1) {
     type = "Potion";
     description = "Mystérieux breuvage";
     action = "???";
@@ -113,7 +113,19 @@ void Potion::use(Hero* perso) {
     int i(rand()%7);
     switch(i) {
         case 0: perso->incr_life(effect);
-            
+            break;
+        case 1: perso->decr_life(effect);
+            break;
+        case 2: perso->change_status();
+            break;
+        case 3: perso->incr_strength(effect);
+            break;
+        case 4 : perso->decr_strength(effect);
+            break;
+        case 5 : perso->incr_defense(effect);
+            break;
+        default : perso->decr_defense(effect);
+            break;
     }
 }
 
