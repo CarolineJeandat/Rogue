@@ -10,9 +10,9 @@ void play(){
     keypad(stdscr, TRUE);
     WINDOW * win = newwin(30, 60, 0, 0);
     char c;
-    Etage etage_1(1,60,30);
-    
-
+    Etage etage_1(1,60,25);
+    etage_1.add_room(0,0,60,25);
+    etage_1.add_charracter(30,10);
     int**l = etage_1.grid;
     while (c != 'q') {
         // On récupère le caractère tapé.
