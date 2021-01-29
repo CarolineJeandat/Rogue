@@ -3,8 +3,43 @@
 #include <ncurses.h>
 #include "donjon.h"
 #include "Character.h"
-#include "Monster.h"
-#include "object.h"
+#include "Object.h"
+
+void ramasser(Hero H,int** l){
+    int* temp = H.get_position();
+    int a(temp[0]), b(temp[1]);
+    if(l[a][b]==5){
+        Armure* m = new Armure(8);
+        H.add_object(m);
+    if(l[a][b]==6){
+        Arme* m = new Arme(8);
+        H.add_object(m);
+    if(l[a][b]==7){
+        Potion* m = new Potion(8);
+        H.add_object(m);
+    if(l[a][b]==8){
+        Food* m = new Food(8);
+        H.add_object(m);
+    }
+}
+
+void move(int x, int y, Hero H, int** l){
+    int* temp = H.get_position();
+    int a(temp[0]), b(temp[1]);
+    if(l[a+x][b+y]==5 || l[a+x][b+y]==6 || l[a+x][b+y]==7 || l[a+x][b+y]==8){
+        H.move(0,x);
+        H.move(1,y);
+        ramasser(H,l);
+    }
+}
+
+
+void monter (Hero H,int** l){
+
+}
+
+
+
 
 void play(){
     initscr();
@@ -20,7 +55,7 @@ void play(){
     while (c != 'q') {
         // On récupère le caractère tapé.
         c = getch();
-        Character H(4,4,1);
+        Hero H(4,4,1);
         if(c='KEY_UP'){
             move(0,-1,H,l);
         }
@@ -39,18 +74,6 @@ void play(){
         }
     }
 }
-
-void move(int x, int y, Character H, int** l){
-
-}
-
-void ramasser(Character H,int** L){
-    
-}
-void monter (Character H,int** l){
-
-}
-
 
 
 

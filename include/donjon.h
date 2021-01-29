@@ -18,7 +18,8 @@ class Etage {
         int numero;
         void add_room(const int& pos_x, const int& pos_y, const int& size_x, const int& size_y);
         void add_objet(int object_type, int pos_x, int pos_y);
-        void add_charracter();
+        void add_character(int pos_x, int pos_y);
+        void add_corridor(int* start, int* finish);
                
 };
 #endif
