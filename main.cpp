@@ -15,7 +15,7 @@ void play(){
     while (c != 'q') {
         // On récupère le caractère tapé.
         c = getch();
-        x=character;
+        H=character;
         if(c='KEY_UP'){
             move(0,-1,x,l)
         }
@@ -33,7 +33,7 @@ void play(){
     }
 }
 
-void move(int x, int y, Character x, int** l){
+void move(int x, int y, Character H, int** l){
     
 }
 
