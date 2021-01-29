@@ -17,35 +17,32 @@ std::string Object::printObject() const {
 Arme::Arme(int might) : used(false), might(might) {
     type = "Arme";
     description = "Epée des fées, héritée de Morgane";
-<<<<<<< Updated upstream
     action = "Force +" + std::to_string(might);
-=======
->>>>>>> Stashed changes
 }
 
 int Arme::getMight() const {
     return might;
 }
 
-void Arme::use(Character* perso) {
+void Arme::use(Hero* perso) {
     if(!used) {
         used = true;
         perso->incr_strength(might);
     }
 }
 
-void Arme::equip(Character* perso) {
+void Arme::equip(Hero* perso) {
     this->use(perso);
 }
 
-void Arme::unuse(Character* perso) {
+void Arme::unuse(Hero* perso) {
     if(used) {
         used = false;
         perso->decr_strength(might);
     }
 }
 
-void Arme::ditch(Character* perso) {
+void Arme::ditch(Hero* perso) {
     this->unuse(perso);
 }
 
@@ -59,25 +56,25 @@ Armure::Armure(int might) : used(false), might(might) {
     action = "Defense +" + std::to_string(might);
 }
 
-void Armure::use(Character* perso) {
+void Armure::use(Hero* perso) {
     if(!used) {
         used = true;
         perso->incr_defense(might);
     }
 }
 
-void Armure::equip(Character* perso) {
+void Armure::equip(Hero* perso) {
     this->use(perso);
 }
 
-void Armure::unuse(Character* perso) {
+void Armure::unuse(Hero* perso) {
     if(used) {
         used = false;
         perso->decr_defense(might);
     }
 }
 
-void Armure::ditch(Character* perso) {
+void Armure::ditch(Hero* perso) {
     this->unuse(perso);
 }
 
@@ -91,12 +88,35 @@ Food::Food(int energy) : energy(energy) {
     action = "Vie +" + std::to_string(energy);
 }
 
-void Food::use(Character* perso) {
+void Food::use(Hero* perso) {
     perso->incr_life(energy);
 }
 
-void Food::equip(Character* perso) {}
+void Food::equip(Hero* perso) {}
 
-void Food::unuse(Character* perso) {}
+void Food::unuse(Hero* perso) {}
 
-void Food::ditch(Character* perso) {}
+void Food::ditch(Hero* perso) {}
+
+
+/*--------------------------------------------------------*/
+/*------------------- Classe : Potion --------------------*/
+/*--------------------------------------------------------*/
+
+Potion::Potion(int effect) : effect(effect) {
+    type = "Potion";
+    description = "Mystérieux breuvage";
+    action = "???";
+}
+
+void Potion::use(Hero* perso) {
+    int i(rand()%7);
+    switch(i) {
+        case 0: perso->incr_life(effect);
+            
+    }
+}
+
+void Potion::equip(Hero* perso) {}
+void Potion::unuse(Hero* perso) {}
+void Potion::ditch(Hero* perso) {}
