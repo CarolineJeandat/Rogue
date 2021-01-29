@@ -17,6 +17,7 @@ void Etage::add_room(const int& rpos_x, const int& rpos_y, const int& rsize_x, c
     if( (rpos_x + rsize_x >= x_size) || (rpos_y + rsize_y >= y_size)){
         //erreur
     }
+    else{
     //mur du haut
     for(int x = rpos_x ; x < rsize_x; x++){
         grid[x][rpos_y] = 1;
@@ -38,9 +39,18 @@ void Etage::add_room(const int& rpos_x, const int& rpos_y, const int& rsize_x, c
             grid[x][y] = 3;
         }
     }    
+    }
 }
 
 void Etage::add_objet(int object_type, int pos_x, int pos_y){
     std::vector<int> object = {object_type, pos_x , pos_y};
     objects.push_back(object);
 }
+
+void Etage::add_character(int pos_x, int pos_y){
+            if ( grid[pos_x][pos_y] == 3 ) {
+                grid[pos_x][pos_y] = 4;
+            }
+            else{
+                //error
+            }
