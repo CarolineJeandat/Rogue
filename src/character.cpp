@@ -22,3 +22,8 @@ int Character::get_strength () { return strength; }
 void Character::incr_defense ( int value ) { defense += value; }
 void Character::decr_defense ( int value ) { defense -= value; }
 int Character::get_defense () { return defense; }
+
+void Character::get_object ( Object* object )
+{
+    g
+}

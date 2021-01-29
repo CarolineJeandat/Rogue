@@ -37,6 +37,7 @@ class Character
         int get_defense ();
 
         // traitement des objets dans la besace
+        void get_object ( Object* object );
         
 
     private :
