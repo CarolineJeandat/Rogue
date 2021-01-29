@@ -3,7 +3,43 @@
 #include <ncurses.h>
 #include "donjon.h"
 #include "Character.h"
-#include "object.h"
+#include "Object.h"
+
+void ramasser(Hero H,int** l){
+    int* temp = H.get_position();
+    int a(temp[0]), b(temp[1]);
+    if(l[a][b]==5){
+        Armure* m = new Armure(8);
+        H.add_object(m);
+    if(l[a][b]==6){
+        Arme* m = new Arme(8);
+        H.add_object(m);
+    if(l[a][b]==7){
+        Potion* m = new Potion(8);
+        H.add_object(m);
+    if(l[a][b]==8){
+        Food* m = new Food(8);
+        H.add_object(m);
+    }
+}
+
+void move(int x, int y, Hero H, int** l){
+    int* temp = H.get_position();
+    int a(temp[0]), b(temp[1]);
+    if(l[a+x][b+y]==5 || l[a+x][b+y]==6 || l[a+x][b+y]==7 || l[a+x][b+y]==8){
+        H.move(0,x);
+        H.move(1,y);
+        ramasser(H,l);
+    }
+}
+
+
+void monter (Hero H,int** l){
+
+}
+
+
+
 
 void play(){
     initscr();
@@ -38,22 +74,6 @@ void play(){
         }
     }
 }
-
-void move(int x, int y, Hero H, int** l){
-    int a,b,c=get_position(H);
-    if(l[a+x][b+y]==5 || l[a+x][b+y]==6 || l[a+x][b+y]==7 || l[a+x][b+y]==8){
-        H.move(0,x);
-        H.move(1,y);
-        ramasser(Hero H,int**L)
-}
-
-void ramasser(Hero H,int** L){
-    
-}
-void monter (Hero H,int** l){
-
-}
-
 
 
 
