@@ -1,5 +1,11 @@
 #include <ncurses.h>
 #include <vector>
+<<<<<<< Updated upstream
+#include "donjon.h"
+=======
+#include <string>
+#include "Character.h"
+>>>>>>> Stashed changes
 
 constexpr int mur=1;
 constexpr int couloir=2;
@@ -11,10 +17,18 @@ constexpr int potion=7;
 constexpr int nourriture=8;
 
 
-void initialisation_etage(int**l,WINDOW * win){
+<<<<<<< Updated upstream
+void initialisation_etage(Etage etage,WINDOW * win){
     wmove(win, 0, 0);
+    int** l = etage.grid;
+    for(int i=0;i<etage.x_size;i++){
+        for(int j=0;j<etage.y_size;j++){
+=======
+void initialisation_etage(int**l,WINDOW * win, Character H){
+    wmove(3, 0, 0);
     for(int i=0;i<30;i++){
         for(int j=0;j<60;j++){
+>>>>>>> Stashed changes
             if(l[i][j]==mur){
                 waddch(win, 'ACS_BLOCK');
             }
@@ -41,5 +55,16 @@ void initialisation_etage(int**l,WINDOW * win){
             }
         }
     }
-
+    wmove(win,1,10);
+    waddstr(win, "PV : ");
+    waddch(win, H.get_life());
+    wmove(win,1,20);
+    waddstr(win, "Force : ");
+    waddch(win, H.get_strength());
+    wmove(win,1,35);
+    waddstr(win, "résistance : ");
+    waddch(win, H.get_defense());
+    wmove(win,1,50);
+    waddstr(win, "Force : ");
+    waddch(win, H.get_gold());
 }
