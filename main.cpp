@@ -15,7 +15,7 @@ void play(){
     char c;
     Etage etage_1(1,60,25);
     etage_1.add_room(0,0,60,25);
-    etage_1.add_charracter(30,10);
+    etage_1.add_character(30,10);
     int**l = etage_1.grid;
     while (c != 'q') {
         // On récupère le caractère tapé.
@@ -33,8 +33,8 @@ void play(){
         if(c='KEY_LEFT'){
             move(-1,0,H,l);
         }
-        if(c='KEY_ENTER'){
-            ramasser(H,l);
+        if(c='m'){
+            monter(H,l);
         endwin();
         }
     }
@@ -47,7 +47,9 @@ void move(int x, int y, Character H, int** l){
 void ramasser(Character H,int** L){
     
 }
+void monter (Character H,int** l){
 
+}
 
 
 
