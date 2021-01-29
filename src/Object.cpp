@@ -7,6 +7,7 @@ std::string Object::getType() const {
 std::string Object::printObject() const {
     std::string msg("");
     msg += type + " : " + description + " (" + action + ")";
+    return msg;
 }
 
 /*--------------------------------------------------------*/
@@ -94,8 +95,8 @@ void Food::use(Character* perso) {
     perso->incr_life(energy);
 }
 
-void equip(Character* perso) {}
+void Food::equip(Character* perso) {}
 
-void unuse(Character* perso) {}
+void Food::unuse(Character* perso) {}
 
-void ditch(Character* perso) {}
+void Food::ditch(Character* perso) {}

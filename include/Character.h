@@ -11,6 +11,8 @@ class Object;
 class Character 
 {
     public :
+        static const unsigned int size_max = 20;
+
         Character ( int x, int y, int etage );
         ~Character ();
 
@@ -54,7 +56,6 @@ class Character
         int defense;
         
         int gold;
-        static unsigned int const size_max;
         std::vector <Object*> besace;
 };
 
