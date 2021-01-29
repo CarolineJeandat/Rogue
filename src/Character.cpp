@@ -59,7 +59,7 @@ void Character::remove_object ( int index )
 std::string Character::print_besace () const
 {
     std::string list_objects = "Objets dans votre besace :\n";
-    for ( unsigned int i=0 ; i<size_max ; i++ )
+    for ( unsigned int i=0 ; i<besace.size() ; i++ )
     {
         list_objects += std::to_string(i);
         list_objects += ". ";

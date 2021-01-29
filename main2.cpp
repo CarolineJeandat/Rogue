@@ -14,16 +14,17 @@ int main ()
     printChar(hero);
 
     std::cout << hero.add_object(&epee) << "\n";
-    hero.use_object(0);
 
     printChar(hero);
 
     std::cout << hero.add_object(&pomme) << "\n";
-    //std::cout << hero.print_besace() << "\n";
+    std::cout << hero.print_besace() << "\n";
 
-    hero.use_object(1);
+    hero.remove_object(0);
+
+    //hero.use_object(1);
     printChar(hero);
-    //std::cout << hero.print_besace() << "\n";
+    std::cout << hero.print_besace() << "\n";
 
     return 0;
 }
