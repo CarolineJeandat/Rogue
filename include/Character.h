@@ -13,6 +13,9 @@ class Monster;
 class Character 
 {
     public :
+        Character(int x, int y, int etage);
+        ~Character();
+
         // mouvement du personnage
         int* get_position () const;
         
@@ -42,15 +45,13 @@ class Character
         int defense;
 };
 
-#endif
-
 class Hero : public Character
 {
     public :
         static const unsigned int size_max = 20;
         
         Hero ( int x, int y, int etage );
-        ~Hero ();
+        //~Hero ();
 
         void move ( int axis, int direction ); 
             // axis : 0 pour x, 1 pour y, 2 pour étage
@@ -80,5 +81,7 @@ class Monster : public Character
 {
     public :
         Monster ( int x, int y, int etage );
-        ~Monster ();
+        //~Monster ();
 };
+
+#endif

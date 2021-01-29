@@ -2,26 +2,22 @@
 #include "Character.h"
 #include "Object.h"
 
+Character::Character(int x, int y, int etage) :
+    pdv(100), strength(5), defense(1) {
+        position = new int[3];
+        position[0] = x;
+        position[1] = y;
+        position[2] = etage;
+}
+Character::~Character() {
+    delete[] position;
+}
 
 Hero::Hero ( int x, int y, int etage ) : 
-    pdv(100), strength(5), defense(1), gold(0) 
-    {
-        position = new int[3];
-        position[0] = x;
-        position[1] = y;
-        position[2] = etage;
-    }
-Hero::~Hero () { delete[] position; }
+    Character(x,y,etage), gold(0) {}
 
 Monster::Monster ( int x, int y, int etage ) : 
-    pdv(100), strength(5), defense(1)
-    {
-        position = new int[3];
-        position[0] = x;
-        position[1] = y;
-        position[2] = etage;
-    }
-Monster::~Monster () { delete[] position; }
+    Character(x,y,etage) {}
 
 
 int* Character::get_position () const { return position; }
