@@ -33,21 +33,23 @@ void play(){
         if(c='KEY_LEFT'){
             move(-1,0,H,l);
         }
-        if(c='KEY_ENTER'){
-            ramasser(H,l);
+        if(c='m'){
+            monter(H,l);
         endwin();
         }
     }
 }
 
 void move(int x, int y, Character H, int** l){
-
+    
 }
 
 void ramasser(Character H,int** L){
     
 }
+void monter (Character H,int** l){
 
+}
 
 
 

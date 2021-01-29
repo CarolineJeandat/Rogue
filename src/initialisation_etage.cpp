@@ -14,7 +14,7 @@ constexpr int nourriture=8;
 
 
 void initialisation_etage(int**l,WINDOW * win, Character H){
-    wmove(win, 0, 0);
+    wmove(win, 3, 0);
     for(int i=0;i<25;i++){
         for(int j=0;j<60;j++){
             if(l[i][j]==mur){
