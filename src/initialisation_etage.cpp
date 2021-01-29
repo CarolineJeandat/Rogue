@@ -14,7 +14,7 @@ constexpr int potion=7;
 constexpr int nourriture=8;
 
 
-void initialisation_etage(Etage etage,WINDOW * win,Character H){
+void initialisation_etage(Etage etage,WINDOW * win,Hero H){
     wmove(win, 3, 0);
     int** l = etage.grid;
     for(int i=0;i<etage.x_size;i++){
