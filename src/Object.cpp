@@ -1,10 +1,17 @@
 #include "Object.h"
 
+std::string Object::getType() const {
+    return type;
+}
+
 /*--------------------------------------------------------*/
 /*-------------------- Classe : Arme ---------------------*/
 /*--------------------------------------------------------*/
 
-Arme::Arme(int might) : used(false), might(might) {}
+Arme::Arme(int might) : used(false), might(might) {
+    type = "Arme";
+    description = "Epée des fées, héritée de Morgane"
+}
 
 int Arme::getMight() const {
     return might;
@@ -36,7 +43,10 @@ void Arme::ditch(Character* perso) {
 /*------------------- Classe : Armure --------------------*/
 /*--------------------------------------------------------*/
 
-Armure::Armure(int might) : used(false), might(might) {}
+Armure::Armure(int might) : used(false), might(might) {
+    type = "Armure";
+    description = "Cotte de maille rustique";
+}
 
 void Armure::use(Character* perso) {
     if(!used) {
@@ -64,11 +74,13 @@ void Armure::ditch(Character* perso) {
 /*-------------------- Classe : Food ---------------------*/
 /*--------------------------------------------------------*/
 
-Food::Food(int energy) : energy(energy) {}
+Food::Food(int energy) : energy(energy) {
+    type = "Aliment";
+    description = "Pomme d'Adam"; 
+}
 
 void Food::use(Character* perso) {
     perso->incr_life(energy);
-    perso->remove_object(this);
 }
 
 void equip(Character* perso) {}

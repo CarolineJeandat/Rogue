@@ -1,47 +1,45 @@
 #include <ncurses.h>
 #include <vector>
 
-constexpr int murcote=1;
-constexpr int murbas=2;
+constexpr int mur=1;
+constexpr int couloir=2;
 constexpr int sol=3;
 constexpr int hero=4;
 constexpr int armure=5;
 constexpr int arme=6;
 constexpr int potion=7;
 constexpr int nourriture=8;
-constexpr int couloir=9;
 
-void initialisation_etage(std::vector<int>l,WINDOW * win){
+
+void initialisation_etage(int**l,WINDOW * win){
     wmove(win, 0, 0);
-    for(int i=0;i<30*60;i++){
-        if(l[i]==murcote){
-            waddch(win, '|');
+    for(int i=0;i<30;i++){
+        for(int j=0;j<60;j++){
+            if(l[i][j]==mur){
+                waddch(win, 'ACS_BLOCK');
+            }
+            if(l[i][j]==sol){
+                waddch(win, '.');
+            }
+            if(l[i][j]==hero){
+                waddch(win, '@');
+            }
+            if(l[i][j]==armure){
+                waddch(win, 'A');
+            }
+            if(l[i][j]==arme){
+                waddch(win, '!');
+            }
+            if(l[i][j]==potion){
+                waddch(win, 'P');
+            }
+            if(l[i][j]==nourriture){
+                waddch(win, 'o');
+            }
+            if(l[i][j]==couloir){
+                waddch(win, '=');
+            }
         }
-        if(l[i]==murbas){
-            waddch(win, '-');
-        }
-        if(l[i]==sol){
-            waddch(win, '.');
-        }
-        if(l[i]==hero){
-            waddch(win, '@');
-        }
-        if(l[i]==armure){
-            waddch(win, 'A');
-        }
-        if(l[i]==arme){
-            waddch(win, '!');
-        }
-        if(l[i]==potion){
-            waddch(win, 'P');
-        }
-        if(l[i]==nourriture){
-            waddch(win, 'o');
-        }
-        if(l[i]==couloir){
-            waddch(win, '=');
-        }
-
     }
 
 }
