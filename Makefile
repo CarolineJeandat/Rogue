@@ -6,7 +6,7 @@ AR = /usr/bin/ar -r
 src := $(wildcard src/*.cpp)
 obj := $(subst src, build, $(src:.cpp=.o))
 
-all: directories libmorse.a rogue
+all: directories librogue.a rogue
 
 rogue: main.cpp librogue.a
 	$(CXX) $(CXXFLAGS) $^ -o $@
