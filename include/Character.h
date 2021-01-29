@@ -4,13 +4,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Object.h"
 
-//class Object;
+
+class Object;
 
 class Character 
 {
-    
     public :
         Character ( int x, int y, int etage );
         ~Character ();
@@ -44,7 +43,8 @@ class Character
         // traitement des objets dans la besace
         std::string add_object ( Object* object );
         void remove_object ( int index );
-        std::string print_besace () const;    
+        std::string print_besace () const;
+        void use_object ( int index );
 
     private :
         int* position;
