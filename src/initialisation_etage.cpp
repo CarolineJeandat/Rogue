@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include <vector>
+#include "donjon.h"
 
 constexpr int mur=1;
 constexpr int couloir=2;
@@ -11,10 +12,11 @@ constexpr int potion=7;
 constexpr int nourriture=8;
 
 
-void initialisation_etage(int**l,WINDOW * win){
+void initialisation_etage(Etage etage,WINDOW * win){
     wmove(win, 0, 0);
-    for(int i=0;i<30;i++){
-        for(int j=0;j<60;j++){
+    int** l = etage.grid;
+    for(int i=0;i<etage.x_size;i++){
+        for(int j=0;j<etage.y_size;j++){
             if(l[i][j]==mur){
                 waddch(win, 'ACS_BLOCK');
             }
