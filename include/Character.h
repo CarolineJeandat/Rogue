@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 
 class Object;
@@ -13,8 +14,8 @@ class Monster;
 class Character 
 {
     public :
-        Character(int x, int y, int etage);
-        ~Character();
+        Character ( int x, int y, int etage );
+        ~Character ();
 
         // mouvement du personnage
         int* get_position () const;
@@ -51,7 +52,6 @@ class Hero : public Character
         static const unsigned int size_max = 20;
         
         Hero ( int x, int y, int etage );
-        //~Hero ();
 
         void move ( int axis, int direction ); 
             // axis : 0 pour x, 1 pour y, 2 pour étage
@@ -68,6 +68,7 @@ class Hero : public Character
         std::string print_besace () const;
         void use_object ( int index );
 
+        // état du héros
         bool is_confused () const;
         void change_status ();
 
@@ -81,7 +82,10 @@ class Monster : public Character
 {
     public :
         Monster ( int x, int y, int etage );
-        //~Monster ();
+        void attaque ( Hero perso );
+    
+    private :
+        bool poisonous;
 };
 
 #endif
