@@ -1,23 +1,21 @@
-
 #include "Character.h"
 #include "Object.h"
 
-Character::Character(int x, int y, int etage) :
-    pdv(100), strength(5), defense(1) {
+Character::Character ( int x, int y, int etage ) :
+    pdv(100), strength(5), defense(1) 
+    {
         position = new int[3];
         position[0] = x;
         position[1] = y;
         position[2] = etage;
-}
-Character::~Character() {
-    delete[] position;
-}
+    }
+Character::~Character () { delete[] position; }
 
 Hero::Hero ( int x, int y, int etage ) : 
-    Character(x,y,etage), gold(0) {}
+    Character( x,y,etage ), gold(0) {}
 
 Monster::Monster ( int x, int y, int etage ) : 
-    Character(x,y,etage) {}
+    Character( x,y,etage ), poisonous(rand()%3==0) {}
 
 
 int* Character::get_position () const { return position; }
@@ -88,3 +86,8 @@ bool Hero::is_confused () const { return confused; }
 void Hero::change_status () { confused = !confused; }
 
 void Character::attaque ( Character autre ) { autre.pdv -= this->strength; }
+
+void Monster::attaque ( Hero perso )
+{
+    if ( poisonous ) { perso.change_status(); }
+}

@@ -48,9 +48,45 @@ void Etage::add_objet(int object_type, int pos_x, int pos_y){
 }
 
 void Etage::add_character(int pos_x, int pos_y){
-            if ( grid[pos_x][pos_y] == 3 ) {
-                grid[pos_x][pos_y] = 4;
+    if ( grid[pos_x][pos_y] == 3 ) {
+        grid[pos_x][pos_y] = 4;
+    }
+    else{
+        //error
+    }
+}
+
+void Etage::add_corridor(int* start, int* finish){
+    
+    
+    if(grid[start[0]][start[1]]!= 1 || grid[finish[0]][finish[1]]!= 1){
+        //error le couloir ne relie pas 2 pièces
+    }
+    else{
+        //c'est un couloir vertical
+        if(start[0]==finish[0]){
+            if(start[1]>finish[1]){
+                int* temp = start;
+                start = finish;
+                finish = temp;                
             }
-            else{
-                //error
+            for(int y = start[1]; y <= finish[1]; y++ ){
+                grid[start[0]][y] = 2;
             }
+        }
+        //horizontal
+        else if(start[1]==finish[1]){
+            if(start[0]>finish[0]){
+                int* temp = start;
+                start = finish;
+                finish = temp;
+            }
+            for(int x = start[0];x <= finish[0]; x++){
+                grid[x][start[1]] = 2;
+            }
+        }
+        else{
+            //error le couloir doit être coudé et c'est pas codé
+        }
+    }
+}
