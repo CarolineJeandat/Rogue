@@ -16,7 +16,10 @@ std::string Object::printObject() const {
 Arme::Arme(int might) : used(false), might(might) {
     type = "Arme";
     description = "Epée des fées, héritée de Morgane";
+<<<<<<< Updated upstream
     action = "Force +" + std::to_string(might);
+=======
+>>>>>>> Stashed changes
 }
 
 int Arme::getMight() const {
