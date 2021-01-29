@@ -12,7 +12,7 @@ class Etage {
 
         //vector de rooms. rooms : sont des vectors d'int {position x, position y, taille x, taille y}
         std::vector<std::vector<int>> rooms;
-        std::vector<std::vector<int>> objets;
+        std::vector<std::vector<int>> objets;// objet : {objet type en int, opos_x ,opos_y}
         std::vector<std::vector<int>> stairs;
     public:
 
