@@ -17,23 +17,28 @@ void play(){
         c = getch();
         H=character;
         if(c='KEY_UP'){
-            move(0,-1,x,l)
+            move(0,-1,H,l);
         }
         if(c='KEY_DOWN'){
-            move(0,1,x,l)
+            move(0,1,H,l);
         }
         if(c='KEY_RIGHT'){
-            move(1,0,x,l)
+            move(1,0,H,l);
         }
         if(c='KEY_LEFT'){
-            move(-1,0,x,l)
+            move(-1,0,H,l);
         }
-
+        if(c='KEY_ENTER')
+            rammsser(H,l)
         endwin();
     }
 }
 
 void move(int x, int y, Character H, int** l){
+
+}
+
+void ramasser(H,L){
     
 }
 

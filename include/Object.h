@@ -14,8 +14,8 @@ class Object {
         virtual void equip(Character* perso) = 0;
         virtual void use(Character* perso) = 0;
         virtual void unuse(Character* perso) = 0;
-        virtual void ditch(Character* perso) const = 0;
-        virtual std::string printObject() = 0;
+        virtual void ditch(Character* perso) = 0;
+        std::string printObject();
 };
 
 class Arme : public Object {
