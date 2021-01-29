@@ -11,7 +11,7 @@ void play(){
     WINDOW * win = newwin(30, 60, 0, 0);
     char c;
     Etage etage_1(1,60,30);
-
+    
 
     int**l = etage_1.grid;
     while (c != 'q') {
