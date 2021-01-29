@@ -10,7 +10,7 @@ std::string Object::getType() const {
 
 Arme::Arme(int might) : used(false), might(might) {
     type = "Arme";
-    description = "Epée des fées, héritée de Morgane"
+    description = "Epée des fées, héritée de Morgane";
 }
 
 int Arme::getMight() const {
