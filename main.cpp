@@ -2,7 +2,7 @@
 #include <string>
 #include <ncurses.h>
 #include "donjon.h"
-#include "Hero.h"
+#include "Character.h"
 #include "object.h"
 
 void play(){
