@@ -1,4 +1,3 @@
-
 #include "Character.h"
 #include "Object.h"
 
@@ -90,5 +89,5 @@ void Character::attaque ( Character autre ) { autre.pdv -= this->strength; }
 
 void Monster::attaque ( Hero perso )
 {
-    perso.change_status() ;
+    if ( poisonous ) { perso.change_status(); }
 }

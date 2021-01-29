@@ -68,6 +68,7 @@ class Hero : public Character
         std::string print_besace () const;
         void use_object ( int index );
 
+        // état du héros
         bool is_confused () const;
         void change_status ();
 
