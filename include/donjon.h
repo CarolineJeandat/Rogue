@@ -1,5 +1,8 @@
+#ifndef DEF_DONJON
+#define DEF_DONJON
+
 #include<vector>
-using namespace std;
+
 
 class Etage {
     private:
@@ -12,7 +15,7 @@ class Etage {
 
         //vector de rooms. rooms : sont des vectors d'int {position x, position y, taille x, taille y}
         std::vector<std::vector<int>> rooms;
-        std::vector<std::vector<int>> objets;// objet : {objet type en int, opos_x ,opos_y}
+        std::vector<std::vector<int>> objects;// objet : {objet type en int, opos_x ,opos_y}
         std::vector<std::vector<int>> stairs;
     public:
 
@@ -22,7 +25,7 @@ class Etage {
         void add_objet(int object_type, int pos_x, int pos_y);
                
 };
-
+#endif
 
 
 
